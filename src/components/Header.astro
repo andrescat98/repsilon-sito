@@ -1,30 +1,113 @@
 ---
-import Logo from '../components/Logo.astro';
-
-const navItems = [
-    { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
+const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/album', label: 'Album & Video' },
+    { href: '/press', label: 'Press Kit' }
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5 mix-blend-difference" id="main-header">
+    <a
+        href="/"
+        class="text-white font-display text-2xl tracking-widest hover:text-[--accent] transition-colors duration-300"
+        style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em;"
+    >
+        REPSILON
     </a>
+
+    <nav class="hidden md:flex items-center gap-10">
+        {
+            navLinks.map((link) => (
+                <a
+                    href={link.href}
+                    class={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 hover:text-[#e8ff00] ${currentPath === link.href ? 'text-[#e8ff00]' : 'text-white'}`}
+                >
+                    {link.label}
+                </a>
+            ))
+        }
+    </nav>
+
+    <a
+        href="https://open.spotify.com/artist/INSERISCI_ID"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors duration-300"
+    >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+            ></path>
+        </svg>
+        Spotify
+    </a>
+
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-white" id="mobile-menu-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-black flex-col items-center justify-center gap-8 hidden">
+    <button id="mobile-close" class="absolute top-5 right-8 text-white text-3xl">&times;</button>
     {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
+        navLinks.map((link) => (
+            <a
+                href={link.href}
+                class="text-5xl font-display tracking-wider text-white hover:text-[#e8ff00] transition-colors"
+                style="font-family: 'Bebas Neue', sans-serif;"
+            >
+                {link.label}
+            </a>
+        ))
     }
-</nav>
+    <a
+        href="https://open.spotify.com/artist/INSERISCI_ID"
+        target="_blank"
+        class="mt-4 text-[#e8ff00] text-xl font-display tracking-wider"
+        style="font-family: 'Bebas Neue', sans-serif;"
+    >
+        → Spotify
+    </a>
+</div>
+
+<script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const close = document.getElementById('mobile-close');
+
+    btn?.addEventListener('click', () => menu?.classList.replace('hidden', 'flex'));
+    close?.addEventListener('click', () => menu?.classList.replace('flex', 'hidden'));
+</script>
+
+<style>
+    #main-header {
+        backdrop-filter: blur(0px);
+        transition:
+            backdrop-filter 0.3s,
+            background 0.3s;
+    }
+    #main-header.scrolled {
+        backdrop-filter: blur(20px);
+        background: rgba(0, 0, 0, 0.7);
+        mix-blend-mode: normal;
+    }
+</style>
+
+<script>
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header?.classList.add('scrolled');
+        } else {
+            header?.classList.remove('scrolled');
+        }
+    });
+</script>

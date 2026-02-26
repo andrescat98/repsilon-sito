@@ -1,19 +1,171 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+// Dati eventi — modifica questi con quelli reali
+const events = [
+    {
+        date: "15 MAR 2025",
+        venue: "Circolo Magnolia",
+        city: "Milano",
+        link: "#"
+    },
+    {
+        date: "22 MAR 2025",
+        venue: "Largo Venue",
+        city: "Roma",
+        link: "#"
+    },
+    {
+        date: "05 APR 2025",
+        venue: "Hiroshima Mon Amour",
+        city: "Torino",
+        link: "#"
+    },
+];
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+// Prossime uscite — modifica questi
+const releases = [
+    {
+        title: "Titolo Singolo",
+        type: "Singolo",
+        date: "Prossimamente",
+        cover: "/images/cover-placeholder.jpg", // sostituisci con cover reale
+        spotify: "#",
+    },
+    {
+        title: "Titolo Album",
+        type: "Album",
+        date: "Estate 2025",
+        cover: "/images/cover-placeholder2.jpg",
+        spotify: "#",
+    },
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home">
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+        <!-- Sfondo animato — sostituisci con il tuo file video/gif/canvas -->
+        <div class="absolute inset-0 z-0" id="bg-animated">
+            <!-- Placeholder: gradiente animato finché non hai lo sfondo definitivo -->
+            <div class="w-full h-full bg-gradient-to-br from-black via-zinc-900 to-black animate-pulse"></div>
+            <!-- Quando hai il video: -->
+            <!-- <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
+                <source src="/bg.mp4" type="video/mp4" />
+            </video> -->
+        </div>
+
+        <!-- Overlay scuro -->
+        <div class="absolute inset-0 z-10 bg-black/50"></div>
+
+        <!-- Contenuto hero -->
+        <div class="relative z-20 text-center px-6" id="hero-content">
+            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase mb-6 opacity-0 animate-fadein" style="animation-delay: 0.3s;">
+                Cantautore
+            </p>
+            <h1 class="text-[clamp(5rem,20vw,18rem)] leading-none text-white opacity-0 animate-fadein" style="animation-delay: 0.5s;">
+                REPSILON
+            </h1>
+            <div class="w-24 h-px bg-[#e8ff00] mx-auto mt-8 opacity-0 animate-fadein" style="animation-delay: 0.8s;"></div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-fadein" style="animation-delay: 1.2s;">
+            <span class="text-xs tracking-widest text-white/50 uppercase">Scorri</span>
+            <div class="w-px h-12 bg-gradient-to-b from-white/50 to-transparent animate-bounce-slow"></div>
+        </div>
+    </section>
+
+    <!-- PROSSIMI EVENTI -->
+    <section class="py-32 px-6 md:px-16 max-w-6xl mx-auto">
+        <div class="flex items-end justify-between mb-16">
+            <h2 class="text-6xl md:text-8xl text-white">LIVE</h2>
+            <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+        </div>
+
+        <div class="flex flex-col gap-0">
+            {events.map((event, i) => (
+                <a
+                    href={event.link}
+                    target="_blank"
+                    class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4"
+                >
+                    <div class="flex items-center gap-8">
+                        <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
+                        <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
+                        <span class="text-[#e8ff00] text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">→ Biglietti</span>
+                    </div>
+                </a>
+            ))}
+            <div class="border-t border-white/10"></div>
+        </div>
+    </section>
+
+    <!-- PROSSIME USCITE -->
+    <section class="py-32 px-6 md:px-16 max-w-6xl mx-auto">
+        <div class="flex items-end justify-between mb-16">
+            <h2 class="text-6xl md:text-8xl text-white">USCITE</h2>
+            <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {releases.map((release) => (
+                <div class="group relative overflow-hidden bg-zinc-900 aspect-square">
+                    <!-- Cover placeholder -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black flex items-center justify-center">
+                        <img
+                            src={release.cover}
+                            alt={release.title}
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                            onerror="this.style.display='none'"
+                        />
+                        <span class="absolute text-white/20 text-9xl font-display" style="font-family:'Bebas Neue',sans-serif;">R</span>
+                    </div>
+
+                    <!-- Info overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                        <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-2">{release.type} — {release.date}</p>
+                        <h3 class="text-white text-3xl md:text-4xl mb-4" style="font-family:'Bebas Neue',sans-serif;">{release.title}</h3>
+                        <a
+                            href={release.spotify}
+                            target="_blank"
+                            class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-black bg-[#e8ff00] px-4 py-2 hover:bg-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                        >
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            </svg>
+                            Ascolta
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
 </Layout>
+
+<style>
+    @keyframes fadein {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fadein {
+        animation: fadein 0.8s ease forwards;
+    }
+
+    @keyframes bounce-slow {
+        0%, 100% { transform: scaleY(1); }
+        50% { transform: scaleY(1.3); }
+    }
+
+    .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+    }
+</style>
