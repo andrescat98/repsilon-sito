@@ -4,40 +4,36 @@ import Layout from '../layouts/Layout.astro';
 // Dati eventi — modifica questi con quelli reali
 const events = [
     {
-        date: "15 MAR 2025",
-        venue: "Circolo Magnolia",
-        city: "Milano",
-        link: "#"
-    },
-    {
-        date: "22 MAR 2025",
-        venue: "Largo Venue",
-        city: "Roma",
-        link: "#"
-    },
-    {
-        date: "05 APR 2025",
-        venue: "Hiroshima Mon Amour",
+        date: "13 MAR 2026",
+        venue: "OFF TOPIC",
         city: "Torino",
-        link: "#"
-    },
+        link: "https://dice.fm/partner/tickets/event/xe6yvl-situazione-13th-mar-off-topic-torino-tickets?dice_id=8553167&dice_channel=web&dice_tags=organic&dice_campaign=OFF+TOPIC+APS&dice_feature=mio_marketing&utm_source=web&utm_campaign=OFF+TOPIC+APS&utm_medium=mio_marketing"
+    }
+
 ];
 
 // Prossime uscite — modifica questi
 const releases = [
     {
-        title: "Titolo Singolo",
-        type: "Singolo",
-        date: "Prossimamente",
-        cover: "/images/cover-placeholder.jpg", // sostituisci con cover reale
-        spotify: "#",
+        title: "Onde",
+        type: "Album",
+        date: "2026",
+        cover: "src/assets/OndeLabel.png", // sostituisci con cover reale
+        spotify: "https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw",
     },
     {
-        title: "Titolo Album",
+        title: "Never Shine In Black",
         type: "Album",
-        date: "Estate 2025",
-        cover: "/images/cover-placeholder2.jpg",
-        spotify: "#",
+        date: "2021",
+        cover: "src/assets/NsibLabel.jpg",
+        spotify: "https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx",
+    },
+       {
+        title: "Useless",
+        type: "Album",
+        date: "2020",
+        cover: "src/assets/UselessLabel.jpg",
+        spotify: "https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z",
     },
 ];
 ---
@@ -48,14 +44,11 @@ const releases = [
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
         <!-- Sfondo animato — sostituisci con il tuo file video/gif/canvas -->
-        <div class="absolute inset-0 z-0" id="bg-animated">
-            <!-- Placeholder: gradiente animato finché non hai lo sfondo definitivo -->
-            <div class="w-full h-full bg-gradient-to-br from-black via-zinc-900 to-black animate-pulse"></div>
-            <!-- Quando hai il video: -->
-            <!-- <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
-                <source src="/bg.mp4" type="video/mp4" />
-            </video> -->
+         
+        <div class="fixed inset-0 z-0" id="bg-animated">
+            <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
         </div>
+
 
         <!-- Overlay scuro -->
         <div class="absolute inset-0 z-10 bg-black/50"></div>
@@ -79,7 +72,7 @@ const releases = [
     </section>
 
     <!-- PROSSIMI EVENTI -->
-    <section class="py-32 w-full" style="padding-left: 3%; padding-right: 3%;">
+    <section class="py-32 w-full bg-black relative z-10" style="padding-left: 3%; padding-right: 3%;">
         <div class="flex items-end justify-between mb-16">
             <h2 class="text-6xl md:text-8xl text-white">LIVE</h2>
             <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
@@ -107,7 +100,7 @@ const releases = [
     </section>
 
     <!-- PROSSIME USCITE -->
-    <section class="py-32 w-full" style="padding-left: 3%; padding-right: 3%;">
+    <section class="py-32 w-full bg-black relative z-10" style="padding-left: 3%; padding-right: 3%;">
         <div class="flex items-end justify-between mb-16">
             <h2 class="text-6xl md:text-8xl text-white">USCITE</h2>
             <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
@@ -124,7 +117,7 @@ const releases = [
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
                             onerror="this.style.display='none'"
                         />
-                        <span class="absolute text-white/20 text-9xl font-display" style="font-family:'Bebas Neue',sans-serif;">R</span>
+                        <span class="absolute text-white/20 text-9xl font-display" style="font-family:'Bebas Neue',sans-serif;"></span>
                     </div>
 
                     <!-- Info overlay -->
