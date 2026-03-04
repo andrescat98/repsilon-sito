@@ -153,3 +153,39 @@ import Layout from '../layouts/Layout.astro';
         </section>
     </div>
 </Layout>
+<style>
+    @media print {
+        header {
+            display: none !important;
+        }
+        .fixed {
+            position: absolute !important;
+        }
+        body {
+            background: white !important;
+            color: black !important;
+        }
+        .bg-black\/80,
+        .bg-black\/90,
+        .bg-black\/50 {
+            background: white !important;
+        }
+        .text-white,
+        .text-white\/80,
+        .text-white\/60 {
+            color: black !important;
+        }
+        .text-\[\#e8ff00\] {
+            color: #333 !important;
+        }
+        .border-white\/10 {
+            border-color: #ccc !important;
+        }
+        a {
+            color: #333 !important;
+        }
+        img {
+            display: none !important;
+        }
+    }
+</style>
