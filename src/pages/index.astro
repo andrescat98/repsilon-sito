@@ -1,41 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { releases, events } from '../data/data';
 
-// Dati eventi — modifica questi con quelli reali
-const events = [
-    {
-        date: "13 MAR 2026",
-        venue: "OFF TOPIC",
-        city: "Torino",
-        link: "https://dice.fm/partner/tickets/event/xe6yvl-situazione-13th-mar-off-topic-torino-tickets?dice_id=8553167&dice_channel=web&dice_tags=organic&dice_campaign=OFF+TOPIC+APS&dice_feature=mio_marketing&utm_source=web&utm_campaign=OFF+TOPIC+APS&utm_medium=mio_marketing"
-    }
-
-];
-
-// Prossime uscite — modifica questi
-const releases = [
-    {
-        title: "Onde",
-        type: "Album",
-        date: "2026",
-        cover: "images/OndeLabel.png", // sostituisci con cover reale
-        spotify: "https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw",
-    },
-    {
-        title: "Never Shine In Black",
-        type: "Album",
-        date: "2021",
-        cover: "images/NsibLabel.jpg",
-        spotify: "https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx",
-    },
-       {
-        title: "Useless",
-        type: "Album",
-        date: "2020",
-        cover: "images/UselessLabel.jpg",
-        spotify: "https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z",
-    },
-];
 ---
 
 <Layout title="Home">
@@ -67,7 +33,7 @@ const releases = [
         <!-- Scroll indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-fadein" style="animation-delay: 1.2s;">
             <span class="text-xs tracking-widest text-white/50 uppercase">Scorri</span>
-            <div class="w-px h-12 bg-gradient-to-b from-white/50 to-transparent animate-bounce-slow"></div>
+            <div class="w-px h-12 bg-linear-to-b from-white/50 to-transparent animate-bounce-slow"></div>
         </div>
     </section>
 
@@ -110,7 +76,7 @@ const releases = [
             {releases.map((release) => (
                 <div class="group relative overflow-hidden bg-zinc-900 aspect-square">
                     <!-- Cover placeholder -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black flex items-center justify-center">
+                    <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-black flex items-center justify-center">
                         <img
                             src={release.cover}
                             alt={release.title}
@@ -121,14 +87,14 @@ const releases = [
                     </div>
 
                     <!-- Info overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8">
                         <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-2">{release.type} — {release.date}</p>
                         <h3 class="text-white text-3xl md:text-4xl mb-4" style="font-family:'Bebas Neue',sans-serif;">{release.title}</h3>
                         <a
                             href={release.spotify}
                             target="_blank"
-                            class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-black bg-[#e8ff00] px-4 py-2 hover:bg-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                            class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-black bg-[#e8ff00] px-4 py-2 hover:bg-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
                         >
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
