@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Press Kit">
+    <div class="fixed inset-0 z-0">
+        <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Header pagina -->
+    <section class="relative z-10 flex items-end" style="padding-left: 5%; padding-right: 5%; padding-top: 12rem; padding-bottom: 3rem;">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10">
+            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase mb-4">Materiale stampa</p>
+            <h1 class="text-[clamp(4rem,14vw,12rem)] leading-none text-white">PRESS KIT</h1>
+        </div>
+    </section>
+
+    <!-- Contenuto -->
+    <div class="w-full bg-black/80 relative z-10" style="padding: 5rem 8%;">
+        <!-- Biografia -->
+        <section class="mb-20">
+            <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Biografia</h2>
+            <p class="text-white/80 leading-relaxed mb-4 max-w-3xl">
+                Vincenzo Reina, in arte <strong class="text-white">Repsilon</strong>, nasce nel 1998 in Sicilia. Da bambino sviluppa la passione per la chitarra
+                studiando con un maestro di banda: solfeggio, teoria musicale, chitarra jazz e folk. Suona da oltre dieci anni.
+            </p>
+            <p class="text-white/80 leading-relaxed mb-4 max-w-3xl">
+                Ispirato dai testi di Dylan, dalle atmosfere dei Radiohead, dai Beatles e dall'intimismo acustico di Damien Rice, nel 2020 pubblica il suo primo
+                album autoprodotto <em>"Useless"</em> — brani introspettivi e melodie delicate. Nel 2021 segue <em>"Never Shine In Black"</em>, lavoro che segna
+                una maggiore maturità artistica.
+            </p>
+            <p class="text-white/80 leading-relaxed max-w-3xl">
+                Attualmente Repsilon è al lavoro su un nuovo disco interamente in italiano, orientato alla sperimentazione sonora.
+            </p>
+        </section>
+
+        <div class="w-full h-px bg-white/10 mb-20"></div>
+
+        <!-- Esperienze artistiche -->
+        <section class="mb-20">
+            <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Esperienze artistiche</h2>
+            <p class="text-white/80 leading-relaxed max-w-3xl">
+                A settembre 2022 debutta live al <strong class="text-white">Balconcino di Torino</strong> e sul palco dei <strong class="text-white"
+                    >Torino Beatles Days</strong
+                > alla Suoneria di Settimo Torinese. Nel 2023 si esibisce al Circolo Arci <strong class="text-white">Il Magazzino sul Po</strong>, al <strong
+                    class="text-white">Collegno Fòl Fest</strong
+                >, al <strong class="text-white">Civico Uno</strong>, al <strong class="text-white">Japs Festival</strong> di Chieri, alla <strong
+                    class="text-white">Festa della Musica</strong
+                > di Torino presso Off Topic, al <strong class="text-white">Torino Hidden Sounds</strong> e al <strong class="text-white">Teatro Q77</strong>.
+            </p>
+        </section>
+
+        <div class="w-full h-px bg-white/10 mb-20"></div>
+
+        <!-- Collaborazioni -->
+        <section class="mb-20">
+            <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Collaborazioni artistiche</h2>
+            <p class="text-white/80 leading-relaxed mb-4 max-w-3xl">
+                Nel 2023 recita come protagonista nel videoclip di <em>"The Singer in the Band"</em> di <strong class="text-white">Marco Bonino</strong>,
+                chitarrista dei Nuovi Angeli, per la regia di Andrea Valente — girato presso il locale storico torinese Le Roi.
+            </p>
+            <p class="text-white/80 leading-relaxed mb-4 max-w-3xl">
+                Collabora con <strong class="text-white">Zeroallaquinta</strong>, associazione culturale torinese, come autore e esecutore delle musiche degli
+                spettacoli teatrali <em>"Tra il terzo e il quarto piano"</em> e <em>"La chimera"</em>.
+            </p>
+            <p class="text-white/80 leading-relaxed max-w-3xl">
+                Ha composto le colonne sonore di diversi cortometraggi, tra cui <em>"Caged Soul"</em> e <em>"Far From Home"</em> del videomaker Giuseppe Bonanno.
+            </p>
+        </section>
+
+        <div class="w-full h-px bg-white/10 mb-20"></div>
+
+        <!-- Discografia + Colonne sonore -->
+        <section class="mb-20">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Discografia</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-4">
+                            <span class="text-white/40 text-xs font-mono">2020</span>
+                            <a
+                                href="https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z"
+                                target="_blank"
+                                class="text-white hover:text-[#e8ff00] transition-colors">Useless</a
+                            >
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="text-white/40 text-xs font-mono">2021</span>
+                            <a
+                                href="https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx"
+                                target="_blank"
+                                class="text-white hover:text-[#e8ff00] transition-colors">Never Shine In Black</a
+                            >
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="text-white/40 text-xs font-mono">2026</span>
+                            <a
+                                href="https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw"
+                                target="_blank"
+                                class="text-white hover:text-[#e8ff00] transition-colors">Onde</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Colonne sonore per corti</h2>
+                    <ul class="space-y-3">
+                        {
+                            [
+                                { year: '2019', title: 'Far From Home', dir: 'Giuseppe Bonanno' },
+                                { year: '2020', title: 'Caged Soul', dir: 'Giuseppe Bonanno' },
+                                { year: '2022', title: 'Saudade', dir: 'Federica Pacifico' },
+                                { year: '2022', title: 'Sonni Tranquilli', dir: 'Alessandra Vita' },
+                                { year: '2022', title: 'Red Light', dir: '' }
+                            ].map((c) => (
+                                <li class="flex items-start gap-4">
+                                    <span class="text-white/40 text-xs font-mono mt-0.5">{c.year}</span>
+                                    <span class="text-white/80">
+                                        {c.title}
+                                        {c.dir ? <span class="text-white/40"> — {c.dir}</span> : ''}
+                                    </span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-white/10 mb-20"></div>
+
+        <!-- Stampa -->
+        <section class="mb-20">
+            <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Stampa</h2>
+            <p class="text-white/80 leading-relaxed max-w-3xl mb-4">
+                Repsilon è incluso nel libro <strong class="text-white">"Cantautori e cantautrici del nuovo millennio. Il dizionario"</strong> di Michele Neri, edito
+                da Iacobelli Editore (gennaio 2023).
+            </p>
+            <p class="text-white/80 leading-relaxed max-w-3xl">
+                Il suo lavoro con Zeroallaquinta è stato citato da <strong class="text-white">TorinoToday</strong> e <strong class="text-white"
+                    >Torino Giovani</strong
+                >.
+            </p>
+        </section>
+
+        <div class="w-full h-px bg-white/10 mb-20"></div>
+
+        <!-- Contatti -->
+        <section>
+            <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Contatti</h2>
+            <a href="mailto:repsilonofficial@gmail.com" class="text-white/60 hover:text-[#e8ff00] transition-colors">repsilonofficial@gmail.com</a>
+        </section>
+    </div>
+</Layout>
