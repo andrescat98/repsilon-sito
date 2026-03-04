@@ -151,7 +151,17 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Contatti</h2>
             <a href="mailto:repsilonofficial@gmail.com" class="text-white/60 hover:text-[#e8ff00] transition-colors">repsilonofficial@gmail.com</a>
         </section>
+
+        <div class="print:hidden flex justify-end">
+            <button
+                onclick="window.print()"
+                class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-6 py-3 hover:bg-white transition-colors cursor-pointer"
+            >
+                ↓ Stampa / Salva come PDF
+            </button>
+        </div>
     </div>
+    <div class="w-full h-px bg-white/10 mb-20"></div>
 </Layout>
 <style>
     @media print {
