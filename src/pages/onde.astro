@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tracks = [
+    { n: '01', title: 'Preludio' },
+    { n: '02', title: 'Onde' },
+    { n: '03', title: 'Vita' },
+    { n: '04', title: 'Lunastorta' },
+    { n: '05', title: 'Acqua Salata e Polvere' },
+    { n: '06', title: 'Mare Di Merda' },
+    { n: '07', title: 'Nuvola' },
+    { n: '08', title: 'Se Ti Dicessi' },
+    { n: '09', title: 'Terra Bruciata' },
+    { n: '10', title: 'Ricordi Programmati' },
+    { n: '11', title: 'Senza Accorgermene' },
+    { n: '12', title: 'Ti Cerco In Giro' },
+    { n: '13', title: 'Annegare' },
+    { n: '14', title: 'Solamente Un Giorno' },
+    { n: '15', title: 'Buonanotte' }
+];
+---
+
+<Layout title="Onde">
+    <div class="fixed inset-0 z-0">
+        <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+
+    <div class="w-full bg-black/80 relative z-10" style="padding: 4rem 5%;">
+        <!-- Cover + Tracklist -->
+        <div class="grid md:grid-cols-2 gap-12 mb-16 items-start" style="padding: 20pt 0;">
+            <!-- Cover -->
+            <div class="" style="padding: 0 15%;">
+                <img src="/images/OndeLabel.png" alt="Onde" class="w-full aspect-square object-cover" />
+            </div>
+
+            <!-- Info + Tracklist -->
+            <div>
+                <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-2">Album — 2026</p>
+                <h1 class="text-white leading-none mb-2" style="font-family:'Bebas Neue',sans-serif; font-size: clamp(3rem, 8vw, 6rem);">ONDE</h1>
+                <a
+                    href="https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors mb-10"
+                >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                        ></path>
+                    </svg>
+                    Ascolta su Spotify
+                </a>
+
+                <!-- Tracklist -->
+                <div class="flex flex-col">
+                    {
+                        tracks.map((track) => (
+                            <div class="flex items-center gap-6 py-4 border-t border-white/10">
+                                <span class="text-white/30 text-xs font-mono w-6">{track.n}</span>
+                                <span class="text-white/80 text-sm tracking-wide">{track.title}</span>
+                            </div>
+                        ))
+                    }
+                    <div class="border-t border-white/10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Descrizione -->
+        <div class="w-full h-px bg-white/10 mb-12"></div>
+        <div style="padding: 20pt 20%;">
+            <h1 class="text-[#e8ff00] text-xl tracking-[0.4em] uppercase mb-6">Descrizione</h1>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1.5rem;">
+                <em>Onde</em> è il terzo album di Repsilon e il primo interamente in italiano, segnando una nuova fase della sua scrittura dopo <em>Useless</em> e
+                <em>Never Shine In Black</em>. Il disco nasce come una riflessione sul cambiamento e sul movimento continuo delle cose — su come impariamo a
+                convivere con ciò che non possiamo controllare.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1rem; ">
+                Il titolo suggerisce l'immagine che attraversa tutto il progetto: le onde come flusso della memoria e delle emozioni. Pensieri e sentimenti
+                riaffiorano come maree silenziose. A volte proviamo a nuotare controcorrente, ma quando la forza è troppa, l'unica possibilità è lasciarsi
+                trasportare — trovando un equilibrio dentro il cambiamento.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1rem; ">
+                I brani abitano paesaggi sospesi: cieli pallidi, maree sugli scogli, ricordi che riemergono come oggetti sul fondo dell'acqua. Molte canzoni
+                nascono dall'incontro tra due voci — Repsilon canta in gran parte insieme a <strong class="text-white">Martina Benci</strong>, creando un
+                dialogo fragile e intimo che attraversa il disco come una seconda corrente.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9;">
+                Dal punto di vista sonoro, <em>Onde</em> si muove in un cantautorato essenziale e atmosferico. Chitarre acustiche, pianoforte e pochi altri elementi
+                costruiscono spazi larghi e ariosi, mentre delay e riverberi profondi creano un effetto quasi sottomarino — sospendendo voci e strumenti nello spazio
+                tra distanza e vicinanza.
+            </p>
+        </div>
+    </div>
+</Layout>

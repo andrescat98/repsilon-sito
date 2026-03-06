@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tracks = [
+    { n: '01', title: 'Never Shine In Black' },
+    { n: '02', title: 'Caged' },
+    { n: '03', title: 'Thorny Ground' },
+    { n: '04', title: 'Restless Souls' },
+    { n: '05', title: 'Somewhere Maybe Sometimes' },
+    { n: '06', title: 'From Here' },
+    { n: '07', title: 'Flying Words' },
+    { n: '08', title: 'Lifetime' },
+    { n: '09', title: 'Ghost' },
+    { n: '10', title: 'Someone' },
+    { n: '11', title: 'Circle' },
+    { n: '12', title: 'Cold Full Moon' },
+    { n: '13', title: 'Reward' }
+];
+---
+
+<Layout title="Never Shine In Black">
+    <div class="fixed inset-0 z-0">
+        <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+
+    <div class="w-full bg-black/80 relative z-10" style="padding: 4rem 5%;">
+        <!-- Cover + Tracklist -->
+        <div class="grid md:grid-cols-2 gap-12 mb-16 items-start" style="padding: 20pt 0;">
+            <!-- Cover -->
+            <div style="padding: 0 15%;">
+                <img src="/images/NsibLabel.jpg" alt="Never Shine In Black" class="w-full aspect-square object-cover" />
+            </div>
+
+            <!-- Info + Tracklist -->
+            <div>
+                <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-2">Album — 2021</p>
+                <h1 class="text-white leading-none mb-2" style="font-family:'Bebas Neue',sans-serif; font-size: clamp(2.5rem, 6vw, 5rem);">
+                    NEVER SHINE IN BLACK
+                </h1>
+                <a
+                    href="https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors mb-10"
+                >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                        ></path>
+                    </svg>
+                    Ascolta su Spotify
+                </a>
+
+                <!-- Tracklist -->
+                <div class="flex flex-col">
+                    {
+                        tracks.map((track) => (
+                            <div class="flex items-center gap-6 py-4 border-t border-white/10">
+                                <span class="text-white/30 text-xs font-mono w-6">{track.n}</span>
+                                <span class="text-white/80 text-sm tracking-wide">{track.title}</span>
+                            </div>
+                        ))
+                    }
+                    <div class="border-t border-white/10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Descrizione -->
+        <div class="w-full h-px bg-white/10 mb-12"></div>
+        <div style="padding: 20pt 20%;">
+            <h1 class="text-[#e8ff00] text-xl tracking-[0.4em] uppercase mb-6">Descrizione</h1>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1.5rem;">
+                <em>Never Shine In Black</em> è il secondo album di Repsilon, pubblicato nel 2021. Se in <em>Useless</em> lo sguardo era rivolto verso l'esterno —
+                alla terra d'origine, alla natura e al senso di appartenenza — qui l'attenzione si sposta verso uno spazio più interiore, dove le emozioni e le storie
+                degli altri diventano parte del proprio paesaggio emotivo.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1rem;">
+                Il disco nasce attorno a un'idea semplice ma potente: il parallelismo tra l'empatia umana e il fenomeno fisico del corpo nero. In fisica, un
+                corpo nero è una cavità quasi completamente chiusa con una piccola apertura: la luce che entra da quel foro rimane intrappolata all'interno,
+                rimbalzando continuamente sulle pareti senza riuscire più a uscire. In <em>Never Shine In Black</em> questo fenomeno diventa una metafora emotiva
+                — l'empatia è come quel raggio di luce: il momento in cui lasciamo entrare dentro di noi le esperienze, le sofferenze e i ricordi degli altri.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1rem;">
+                La copertina dell'album — uno squarcio nero su uno sfondo bianco — rappresenta proprio quell'ingresso: una soglia attraverso cui la luce passa
+                per poi scomparire all'interno di una cavità sconosciuta. Anche la struttura del disco segue questa traiettoria verso l'interno: procedendo
+                nella tracklist, le atmosfere diventano sempre più scure e sospese, i suoni si allungano, il riverbero si espande e gli strumenti sembrano
+                muoversi in uno spazio sempre più chiuso.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9; margin-bottom: 1rem;">
+                Nei testi compaiono immagini ricorrenti di stanze vuote, finestre aperte sulla notte, ombre e deserti interiori. Personaggi solitari
+                attraversano ricordi, perdite e attese silenziose, mentre la luce — fragile ma ostinata — continua a cercare uno spazio in cui restare.
+            </p>
+            <p class="text-white/80 text-lg text-justify" style="line-height: 1.9;">
+                Musicalmente il disco si muove attorno a sonorità più scure e atmosferiche rispetto al lavoro precedente, costruite principalmente attraverso
+                chitarra elettrica e tastiere. Il riverbero, spesso ampio e persistente, diventa parte integrante del racconto: uno spazio acustico chiuso in
+                cui le note rimangono sospese, come se fossero intrappolate all'interno di quella cavità immaginaria.
+            </p>
+        </div>
+    </div>
+</Layout>

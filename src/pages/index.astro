@@ -1,32 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { releases, events } from '../data/data';
-
 ---
 
 <Layout title="Home">
-
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-
         <!-- Sfondo animato — sostituisci con il tuo file video/gif/canvas -->
-         
+
         <div class="fixed inset-0 z-0" id="bg-animated">
             <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
         </div>
-
 
         <!-- Overlay scuro -->
         <div class="absolute inset-0 z-10 bg-black/50"></div>
 
         <!-- Contenuto hero -->
         <div class="relative z-20 text-center px-6" id="hero-content">
-            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase mb-6 opacity-0 animate-fadein" style="animation-delay: 0.3s;">
-                Cantautore
-            </p>
-            <h1 class="text-[clamp(5rem,20vw,18rem)] leading-none text-white opacity-0 animate-fadein" style="animation-delay: 0.5s;">
-                REPSILON
-            </h1>
+            <h1 class="text-[clamp(5rem,20vw,18rem)] leading-none text-white opacity-0 animate-fadein" style="animation-delay: 0.5s;">REPSILON</h1>
             <div class="w-24 h-px bg-[#e8ff00] mx-auto mt-8 opacity-0 animate-fadein" style="animation-delay: 0.8s;"></div>
         </div>
 
@@ -45,73 +36,72 @@ import { releases, events } from '../data/data';
         </div>
 
         <div class="flex flex-col gap-0">
-            {events.map((event, i) => (
-                <a
-                    href={event.link}
-                    target="_blank"
-                    class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4"
-                >
-                    <div class="flex items-center gap-8">
-                        <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
-                        <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
-                        <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→ Info e biglietti</span>
-                    </div>
-                </a>
-            ))}
+            {
+                events.map((event, i) => (
+                    <a
+                        href={event.link}
+                        target="_blank"
+                        class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4"
+                    >
+                        <div class="flex items-center gap-8">
+                            <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
+                            <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
+                            <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→ Info e biglietti</span>
+                        </div>
+                    </a>
+                ))
+            }
             <div class="border-t border-white/10"></div>
         </div>
     </section>
 
     <!-- PROSSIME USCITE -->
-    <section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 2rem; padding-bottom: 1rem;">
+    <section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 3rem; padding-bottom: 1rem;">
         <div class="flex items-end justify-between mb-16">
             <h2 class="text-6xl md:text-8xl text-white">USCITE</h2>
             <div class="w-32 h-px bg-[#e8ff00]" style="margin-bottom: 1.2rem;"></div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="padding: 0 5%;">
-            {releases.map((release) => (
-                <div class="group relative overflow-hidden bg-zinc-900 aspect-square">
-                    <!-- Cover placeholder -->
-                    <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-black flex items-center justify-center">
-                        <img
-                            src={release.cover}
-                            alt={release.title}
-                            class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
-                            onerror="this.style.display='none'"
-                        />
-                        <span class="absolute text-white/20 text-9xl font-display" style="font-family:'Bebas Neue',sans-serif;"></span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-15" style="padding: 3% 15%;">
+            {
+                releases.map((release) => (
+                    <div class="group relative overflow-hidden bg-zinc-900 aspect-square cursor-pointer" onclick={`window.location.href='${release.page}'`}>
+                        <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-black flex items-center justify-center">
+                            <img
+                                src={release.cover}
+                                alt={release.title}
+                                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                                onerror="this.style.display='none'"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent" />
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-2">
+                                {release.type} — {release.date}
+                            </p>
+                            <h3 class="text-white text-3xl md:text-4xl" style="font-family:'Bebas Neue',sans-serif;">
+                                {release.title}
+                            </h3>
+                        </div>
                     </div>
-
-                    <!-- Info overlay -->
-                    <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8">
-                        <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-2">{release.type} — {release.date}</p>
-                        <h3 class="text-white text-3xl md:text-4xl mb-4" style="font-family:'Bebas Neue',sans-serif;">{release.title}</h3>
-                        <a
-                            href={release.spotify}
-                            target="_blank"
-                            class="inline-flex items-center gap-2 md:text-xs font-bold tracking-widest uppercase text-black bg-[#e8ff00] hover:bg-white transition-colors md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 duration-300 text-sm px-5 py-3"                        >
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                            </svg>
-                            Ascolta
-                        </a>
-                    </div>
-                </div>
-            ))}
+                ))
+            }
         </div>
     </section>
-
 </Layout>
 
 <style>
     @keyframes fadein {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .animate-fadein {
@@ -119,8 +109,13 @@ import { releases, events } from '../data/data';
     }
 
     @keyframes bounce-slow {
-        0%, 100% { transform: scaleY(1); }
-        50% { transform: scaleY(1.3); }
+        0%,
+        100% {
+            transform: scaleY(1);
+        }
+        50% {
+            transform: scaleY(1.3);
+        }
     }
 
     .animate-bounce-slow {

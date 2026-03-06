@@ -5,6 +5,7 @@ export const releases = [
         date: "2026",
         cover: "/images/OndeLabel.png",
         spotify: "https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw",
+        page: "/onde",
     },
     {
         title: "Never Shine In Black",
@@ -12,6 +13,7 @@ export const releases = [
         date: "2021",
         cover: "/images/NsibLabel.jpg",
         spotify: "https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx",
+        page: "/never-shine-in-black"
     },
     {
         title: "Useless",
@@ -19,6 +21,7 @@ export const releases = [
         date: "2020",
         cover: "/images/UselessLabel.jpg",
         spotify: "https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z",
+        page: "/useless",
     },
 ];
 
