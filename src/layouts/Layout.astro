@@ -23,10 +23,25 @@ const { title, description = '— Repsilon —' } = Astro.props;
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
         <meta property="og:title" content="Repsilon" />
-
         <meta property="og:image" content="https://repsilon.pages.dev/images/og-image.jpg" />
         <meta property="og:url" content="https://repsilon.pages.dev" />
         <meta property="og:type" content="website" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "MusicGroup",
+                "name": "Repsilon",
+                "url": "https://repsilon.pages.dev",
+                "image": "https://repsilon.pages.dev/images/og-image.jpg",
+                "genre": "Cantautorato",
+                "sameAs": [
+                    "https://www.instagram.com/repsilon_/",
+                    "https://www.tiktok.com/@repsilon",
+                    "https://open.spotify.com/intl-it/artist/4hvkPM02c7e4jbmnTbrszD"
+                ]
+            }
+        </script>
     </head>
     <body class="bg-black text-white overflow-x-hidden">
         <Header />
