@@ -15,17 +15,24 @@ const { title, description = '— Repsilon —' } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <title>{title} — Repsilon</title>
-        <meta name="description" content={description} />
+        <meta name="description" content="Repsilon — cantautore torinese. Ascolta gli album Onde, Never Shine In Black e Useless. Date live e press kit." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="google-site-verification" content="JOfARyAYyoRqyJFG2KYvzmW1OySUdJ1CSbr563TDO0o" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
         <meta property="og:title" content="Repsilon" />
+        <meta
+            property="og:description"
+            content="Repsilon — cantautore torinese. Ascolta gli album Onde, Never Shine In Black e Useless. Date live e press kit."
+        />
         <meta property="og:image" content="https://repsilon.pages.dev/images/og-image.jpg" />
         <meta property="og:url" content="https://repsilon.pages.dev" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://repsilon.pages.dev/images/og-image.jpg" />
 
         <script type="application/ld+json">
             {
@@ -33,8 +40,37 @@ const { title, description = '— Repsilon —' } = Astro.props;
                 "@type": "MusicGroup",
                 "name": "Repsilon",
                 "url": "https://repsilon.pages.dev",
-                "image": "https://repsilon.pages.dev/images/og-image.jpg",
+                "image": "https://repsilon.pages.dev/images/icon-r.png",
                 "genre": "Cantautorato",
+                "description": "Repsilon è il progetto musicale di Vincenzo Reina, cantautore nato in Sicilia nel 1998 e attivo a Torino. Autore degli album Useless (2020), Never Shine In Black (2021) e Onde (2026).",
+                "foundingLocation": {
+                    "@type": "Place",
+                    "name": "Sicilia, Italia"
+                },
+                "member": {
+                    "@type": "Person",
+                    "name": "Vincenzo Reina"
+                },
+                "album": [
+                    {
+                        "@type": "MusicAlbum",
+                        "name": "Onde",
+                        "datePublished": "2026",
+                        "url": "https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw"
+                    },
+                    {
+                        "@type": "MusicAlbum",
+                        "name": "Never Shine In Black",
+                        "datePublished": "2021",
+                        "url": "https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx"
+                    },
+                    {
+                        "@type": "MusicAlbum",
+                        "name": "Useless",
+                        "datePublished": "2020",
+                        "url": "https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z"
+                    }
+                ],
                 "sameAs": [
                     "https://www.instagram.com/repsilon_/",
                     "https://www.tiktok.com/@repsilon",
