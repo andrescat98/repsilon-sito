@@ -102,6 +102,7 @@ const { title, description = '— Repsilon —' } = Astro.props;
 
     html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
     }
 
     body {
@@ -144,7 +145,11 @@ const { title, description = '— Repsilon —' } = Astro.props;
     .covergif {
         margin-left: -5%;
         margin-right: -5%;
-        padding: 10pt 5%;
+        padding: 15pt 5%;
+    }
+
+    .cover-album {
+        padding: 0 10%;
     }
 
     @media (min-width: 768px) {
@@ -159,6 +164,10 @@ const { title, description = '— Repsilon —' } = Astro.props;
             margin-left: -10%;
             margin-right: -10%;
             padding: 20pt 5%;
+        }
+        .cover-album {
+            padding: 0 25%;
+            min-width: 350px;
         }
     }
 </style>
