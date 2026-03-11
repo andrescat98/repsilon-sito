@@ -11,7 +11,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="relative z-10 flex items-end" style="padding-left: 3%; padding-right: 3%; padding-top: 12rem; padding-bottom: 3rem;">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10">
-            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase mb-4">Materiale stampa</p>
+            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase">Materiale stampa</p>
             <h1 class="text-[clamp(4rem,14vw,12rem)] leading-none text-white">PRESS KIT</h1>
         </div>
     </section>
@@ -20,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="w-full bg-black/80 relative z-10 presskit">
         <!-- Biografia -->
         <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">BIO</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
             </div>
@@ -39,8 +39,8 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <!-- Esperienze artistiche -->
-        <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+        <section class="mb-40" style="padding-top: 2rem;">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">LIVE</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-6"></div>
             </div>
@@ -56,8 +56,8 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <!-- Collaborazioni -->
-        <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+        <section class="mb-40" style="padding-top: 2rem;">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">COLLAB</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
             </div>
@@ -75,64 +75,56 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <!-- Discografia + Colonne sonore -->
-        <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+        <section class="mb-40" style="padding-top: 2rem;">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">DISCO</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Discografia</p>
-                    <ul class="space-y-0">
+                    <p class="text-[#e8ff00] text-s tracking-[0.4em] uppercase mb-6">Discografia</p>
+                    <ul class="space-y-2">
                         {
                             [
                                 { year: '2020', title: 'Useless', href: 'https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z' },
                                 { year: '2021', title: 'Never Shine In Black', href: 'https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx' },
                                 { year: '2026', title: 'Onde', href: 'https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw' }
                             ].map((r) => (
-                                <li class="flex items-center justify-between py-5 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300">
-                                    <div class="flex items-center gap-8">
-                                        <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-14">{r.year}</span>
-                                        <a href={r.href} target="_blank" class="text-white text-xl font-light hover:text-[#e8ff00] transition-colors">
-                                            {r.title}
-                                        </a>
-                                    </div>
-                                    <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→</span>
+                                <li class="text-white/80">
+                                    <span class="text-[#e8ff00] font-mono text-xs mr-4">{r.year}</span>
+                                    <a href={r.href} target="_blank" class="hover:text-[#e8ff00] transition-colors">
+                                        {r.title}
+                                    </a>
                                 </li>
                             ))
                         }
-                        <div class="border-t border-white/10"></div>
                     </ul>
                 </div>
                 <div>
-                    <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-6">Colonne sonore per corti</p>
-                    <ul class="space-y-0">
+                    <p class="text-[#e8ff00] text-s tracking-[0.4em] uppercase mb-6">Colonne sonore per corti</p>
+                    <ul class="space-y-2">
                         {
                             [
-                                { year: '2019', title: 'Far From Home', dir: 'Giuseppe Bonanno' },
-                                { year: '2020', title: 'Caged Soul', dir: 'Giuseppe Bonanno' },
-                                { year: '2022', title: 'Saudade', dir: 'Federica Pacifico' },
-                                { year: '2022', title: 'Sonni Tranquilli', dir: 'Alessandra Vita' },
-                                { year: '2022', title: 'Red Light', dir: '' }
+                                { year: '2019', title: 'Far From Home' },
+                                { year: '2020', title: 'Caged Soul' },
+                                { year: '2022', title: 'Saudade' },
+                                { year: '2022', title: 'Sonni Tranquilli' },
+                                { year: '2022', title: 'Red Light' }
                             ].map((c) => (
-                                <li class="flex items-center justify-between py-5 border-t border-white/10">
-                                    <div class="flex items-center gap-8">
-                                        <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-14">{c.year}</span>
-                                        <span class="text-white text-xl font-light">{c.title}</span>
-                                    </div>
-                                    {c.dir && <span class="text-white/40 text-sm tracking-wider uppercase">{c.dir}</span>}
+                                <li class="text-white/80">
+                                    <span class="text-[#e8ff00] font-mono text-xs mr-4">{c.year}</span>
+                                    {c.title}
                                 </li>
                             ))
                         }
-                        <div class="border-t border-white/10"></div>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- Stampa -->
-        <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+        <section class="mb-40" style="padding-top: 2rem;">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">STAMPA</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
             </div>
@@ -148,8 +140,8 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <!-- Contatti -->
-        <section class="mb-40">
-            <div class="flex items-end justify-between mb-32">
+        <section class="mb-40" style="padding-top: 2rem;">
+            <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">CONTATTI</h2>
                 <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
             </div>
