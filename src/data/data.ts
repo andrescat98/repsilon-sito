@@ -4,7 +4,7 @@ export const releases = [
         type: "Album",
         date: "2026",
         cover: "/images/OndeLabel.png",
-        spotify: "https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw",
+        spotify: "https://open.spotify.com/intl-it/album/4RFPT1ej1rdmNrBhoxtayf",
         page: "/onde",
     },
     {
