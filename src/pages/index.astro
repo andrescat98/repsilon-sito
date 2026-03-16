@@ -28,35 +28,62 @@ import { releases, events } from '../data/data';
         </div>
     </section>
 
-    <!-- PROSSIMI EVENTI -->
-    <section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 2rem; padding-bottom: 1rem;">
-        <div class="flex items-end justify-between mb-16">
-            <h2 class="text-6xl md:text-8xl text-white">LIVE</h2>
-            <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
-        </div>
+<!-- PROSSIMI EVENTI -->
+<section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 2rem; padding-bottom: 1rem;">
+    <div class="flex items-end justify-between mb-16">
+        <h2 class="text-6xl md:text-8xl text-white">LIVE</h2>
+        <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+    </div>
 
-        <div class="flex flex-col gap-0">
-            {
-                events.map((event, i) => (
-                    <a
-                        href={event.link}
-                        target="_blank"
-                        class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4"
-                    >
-                        <div class="flex items-center gap-8">
-                            <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
-                            <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
+    {(() => {
+        const now = new Date();
+        const future = events.filter(e => new Date(e.dateISO) >= now);
+        const past = events.filter(e => new Date(e.dateISO) < now).slice(-5);
+
+        return (
+            <>
+                <div class="flex flex-col gap-0">
+                    {future.length === 0 && (
+                        <p class="text-white/40 text-sm tracking-widest uppercase py-8">— Stay tuned per i prossimi concerti —</p>
+                    )}
+                    {future.map((event) => (
+                        <a href={event.link} target="_blank" class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4">
+                            <div class="flex items-center gap-8">
+                                <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
+                                <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
+                                <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→ Info e biglietti</span>
+                            </div>
+                        </a>
+                    ))}
+                    <div class="border-t border-white/10"></div>
+                </div>
+
+                {past.length > 0 && (
+                    <div class="mt-16">
+                        <h3 class="text-white/30 text-xs tracking-[0.4em] uppercase mb-6">Archivio eventi</h3>
+                        <div class="flex flex-col gap-0">
+                            {past.map((event) => (
+                                <a href={event.link} target="_blank" class="group flex items-center justify-between py-5 border-t border-white/5 hover:border-white/20 transition-all duration-300 hover:px-4">
+                                    <div class="flex items-center gap-8">
+                                        <span class="text-white/30 text-sm font-mono tracking-widest w-28">{event.date}</span>
+                                        <span class="text-white/40 text-xl md:text-2xl font-light group-hover:text-white/60 transition-colors">{event.venue}</span>
+                                    </div>
+                                    <div class="flex items-center gap-6">
+                                        <span class="text-white/30 text-sm tracking-wider uppercase">{event.city}</span>
+                                    </div>
+                                </a>
+                            ))}
+                            <div class="border-t border-white/5"></div>
                         </div>
-                        <div class="flex items-center gap-6">
-                            <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
-                            <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→ Info e biglietti</span>
-                        </div>
-                    </a>
-                ))
-            }
-            <div class="border-t border-white/10"></div>
-        </div>
-    </section>
+                    </div>
+                )}
+            </>
+        );
+    })()}
+</section>
 <!-- ALBUMS -->
 
 <!-- PROSSIME USCITE -->
@@ -65,7 +92,7 @@ import { releases, events } from '../data/data';
         <h2 class="text-6xl md:text-8xl text-white">USCITE</h2>
         <div class="w-32 h-px bg-[#e8ff00]" style="margin-bottom: 1.5rem;"></div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-15" style="padding: 1% 15%;">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-15" style="padding: 1% 15%;">
         {releases.map((release) => (
             <div
                 class="group cursor-pointer relative"
@@ -82,7 +109,7 @@ import { releases, events } from '../data/data';
                     />
                     <div class="absolute inset-0 bg-linear-to-l from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-black via-black/30 to-transparent">
-                        <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-2">{release.type} — {release.date}</p>
+                        <p class="text-[#e8ff00] text-xs tracking-[0.3em] uppercase mb-1">{release.type} — {release.date}</p>
                         <h3 class="text-white text-3xl md:text-4xl" style="font-family:'Bebas Neue',sans-serif;">{release.title}</h3>
                     </div>
                 </div>

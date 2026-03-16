@@ -28,6 +28,7 @@ export const releases = [
 export const events = [
     {
         date: "13 MAR 2026",
+        dateISO: "2026-03-13",
         venue: "OFF TOPIC",
         city: "Torino",
         link: "https://dice.fm/partner/tickets/event/xe6yvl-situazione-13th-mar-off-topic-torino-tickets?dice_id=8553167&dice_channel=web&dice_tags=organic&dice_campaign=OFF+TOPIC+APS&dice_feature=mio_marketing&utm_source=web&utm_campaign=OFF+TOPIC+APS&utm_medium=mio_marketing"
