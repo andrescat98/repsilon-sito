@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { releases } from '../data/data.ts';
+
+const album = releases.find((r) => r.page === '/useless');
 
 const tracks = [
     { n: '01', title: 'Burning Lights' },
@@ -42,8 +45,9 @@ const tracks = [
                 <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-2">Album — 2020</p>
                 <h1 class="text-white leading-none mb-2" style="font-family:'Bebas Neue',sans-serif; font-size: clamp(3rem, 8vw, 6rem);">USELESS</h1>
                 <a
-                    href="https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z"
+                    href={album.spotify}
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors mb-10"
                 >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
