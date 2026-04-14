@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { releases } from '../data/data.ts';
 
-const album = releases.find((r) => r.page === '/useless');
+const base = import.meta.env.BASE_URL || '/';
+const album = releases.find((r) => r.page === 'useless');
 
 const tracks = [
     { n: '01', title: 'Burning Lights' },
@@ -22,7 +23,7 @@ const tracks = [
 
 <Layout title="Useless">
     <div class="fixed inset-0 z-0">
-        <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
+        <img src={`${base}images/bg.jpg`} alt="" class="w-full h-full object-cover" />
     </div>
 
     <div class="w-full bg-black/95 relative z-10" style="padding: 4rem 5%;">
@@ -30,14 +31,14 @@ const tracks = [
         <div class="relative grid md:grid-cols-2 gap-12 mb-16 items-start covergif">
             <div class="absolute inset-0 z-0 overflow-hidden">
                 <video autoplay loop muted playsinline webkit-playsinline preload="auto" class="w-full h-full object-cover opacity-40">
-                    <source src="/gif/useless.webm" type="video/webm" />
+                    <source src={`${base}gif/useless.webm`} type="video/webm" />
                 </video>
                 <div class="absolute inset-0 bg-black/10"></div>
             </div>
 
             <!-- Cover -->
             <div class="relative z-10 flex items-center justify-center">
-                <img src="/images/UselessLabel.jpg" alt="Useless" class="aspect-square object-cover" style="width: clamp(300px, 50%, 500px);" />
+                <img src={`${base}images/UselessLabel.jpg`} alt="Useless" class="aspect-square object-cover" style="width: clamp(300px, 50%, 500px);" />
             </div>
 
             <!-- Info + Tracklist -->
