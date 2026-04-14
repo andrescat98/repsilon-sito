@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { releases } from '../data/data.ts';
 
+const album = releases.find((r) => r.page === '/onde');
 const tracks = [
     { n: '01', title: 'Preludio' },
     { n: '02', title: 'Onde' },
@@ -45,7 +47,7 @@ const tracks = [
                 <p class="text-[#e8ff00] text-xs tracking-[0.4em] uppercase mb-2">Album — 2026</p>
                 <h1 class="text-white leading-none mb-2" style="font-family:'Bebas Neue',sans-serif; font-size: clamp(3rem, 8vw, 6rem);">ONDE</h1>
                 <a
-                    href="https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw"
+                    href={album?.spotify}
                     target="_blank"
                     class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors mb-10"
                 >
