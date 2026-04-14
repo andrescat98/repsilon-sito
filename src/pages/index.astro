@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { releases, events } from '../data/data';
-
-const base = import.meta.env.BASE_URL || '/';
 ---
 
 <Layout title="Home">
@@ -11,7 +9,7 @@ const base = import.meta.env.BASE_URL || '/';
         <!-- Sfondo animato — sostituisci con il tuo file video/gif/canvas -->
 
         <div class="fixed inset-0 z-0" id="bg-animated">
-            <img src={`${base}images/bg.jpg`} alt="" class="w-full h-full object-cover" />
+            <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
         </div>
 
         <!-- Overlay scuro -->
@@ -99,7 +97,7 @@ const base = import.meta.env.BASE_URL || '/';
             <div
                 class="group cursor-pointer relative"
                 style="perspective: 1000px;"
-                onclick={`window.location.href='${base}${release.page}'`}
+                onclick={`window.location.href='${release.page}'`}
             >
                 <!-- Custodia -->
                 <div class="relative aspect-square overflow-hidden">
