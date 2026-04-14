@@ -1,8 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { releases } from '../data/data.ts';
-
-const album = releases.find((r) => r.page === '/never-shine-in-black');
 
 const tracks = [
     { n: '01', title: 'Never Shine In Black' },
@@ -47,9 +44,8 @@ const tracks = [
                     NEVER SHINE IN BLACK
                 </h1>
                 <a
-                    href={album?.spotify}
+                    href={album.spotify}
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-4 py-2 hover:bg-white transition-colors mb-10"
                 >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
