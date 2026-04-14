@@ -1,9 +1,8 @@
 ---
-const base = import.meta.env.BASE_URL || '/';
 const navLinks = [
-    { href: '', label: 'Home' },
-    { href: 'album', label: 'Album' },
-    { href: 'press', label: 'Press Kit' }
+    { href: '/', label: 'Home' },
+    { href: '/album', label: 'Album' },
+    { href: '/press', label: 'Press Kit' }
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -14,7 +13,7 @@ const currentPath = Astro.url.pathname;
     style="padding-left: 3%; padding-right: 3%;"
 >
     <a
-        href={base}
+        href="/"
         class="text-white text-2xl tracking-widest hover:text-[#e8ff00] transition-colors duration-300"
         style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em;"
     >
@@ -24,8 +23,8 @@ const currentPath = Astro.url.pathname;
         {
             navLinks.map((link) => (
                 <a
-                    href={`${base}${link.href}`}
-                    class={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 hover:text-[#e8ff00] ${currentPath === `${base}${link.href}` ? 'text-[#e8ff00]' : 'text-white'}`}
+                    href={link.href}
+                    class={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 hover:text-[#e8ff00] ${currentPath === link.href ? 'text-[#e8ff00]' : 'text-white'}`}
                 >
                     {link.label}
                 </a>
@@ -86,7 +85,7 @@ const currentPath = Astro.url.pathname;
     {
         navLinks.map((link) => (
             <a
-                href={`${base}${link.href}`}
+                href={link.href}
                 class="text-5xl tracking-wider text-white hover:text-[#e8ff00] transition-colors"
                 style="font-family: 'Bebas Neue', sans-serif;"
             >

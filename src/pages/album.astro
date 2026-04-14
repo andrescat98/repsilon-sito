@@ -1,13 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { releases } from '../data/data';
-
-const base = import.meta.env.BASE_URL || '/';
 ---
 
 <Layout title="Album & Video">
     <div class="fixed inset-0 z-0" id="bg-animated">
-        <img src={`${base}images/bg.jpg`} alt="" class="w-full h-full object-cover" />
+        <img src="/images/bg.jpg" alt="" class="w-full h-full object-cover" />
     </div>
 
     <!-- Header pagina -->
@@ -24,13 +22,13 @@ const base = import.meta.env.BASE_URL || '/';
         <div class="flex flex-col">
             {releases.map((release) => (
                 <a
-                    href={`${base}${release.page}`}
+                    href={release.page}
                     class="group flex items-center gap-8 py-6 border-t border-white/10 hover:border-[#e8ff00]/50 hover:px-4 transition-all duration-300"
                 >
                     <!-- Cover piccola -->
                     <div class="w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden bg-zinc-900">
                         <img
-                            src={`${base}${release.cover}`}
+                            src={release.cover}
                             alt={release.title}
                             class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                             onerror="this.style.display='none'"

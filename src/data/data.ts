@@ -3,25 +3,25 @@ export const releases = [
         title: "Onde",
         type: "Album",
         date: "2026",
-        cover: "images/OndeLabel.png",
+        cover: "/images/OndeLabel.png",
         spotify: "https://open.spotify.com/intl-it/album/4RFPT1ej1rdmNrBhoxtayf",
-        page: "onde",
+        page: "/onde",
     },
     {
         title: "Never Shine In Black",
         type: "Album",
         date: "2021",
-        cover: "images/NsibLabel.jpg",
+        cover: "/images/NsibLabel.jpg",
         spotify: "https://open.spotify.com/intl-it/album/50K9CKxtFjCn60OC32Jhbx",
-        page: "never-shine-in-black"
+        page: "/never-shine-in-black"
     },
     {
         title: "Useless",
         type: "Album",
         date: "2020",
-        cover: "images/UselessLabel.jpg",
+        cover: "/images/UselessLabel.jpg",
         spotify: "https://open.spotify.com/intl-it/album/0Tebv5WFPZP9Popddzyu1z",
-        page: "useless",
+        page: "/useless",
     },
 ];
 
