@@ -17,7 +17,7 @@ import { releases, events } from '../data/data';
 
         <!-- Contenuto hero -->
         <div class="relative z-20 text-center px-6" id="hero-content">
-            <h1 class="text-[clamp(5rem,20vw,18rem)] leading-none text-white opacity-0 animate-fadein" style="animation-delay: 0.5s;">REPSILON</h1>
+            <h1 class="text-[clamp(5rem,20vw,18rem)] leading-none text-white opacity-0 animate-fadein" style="animation-delay: 0.5s; perspective: 700px;"><span id="hero-r" class="hero-r-letter">R</span>EPSILON</h1>
             <div class="w-24 h-px bg-[#e8ff00] mx-auto mt-8 opacity-0 animate-fadein" style="animation-delay: 0.8s;"></div>
         </div>
 
@@ -130,6 +130,32 @@ import { releases, events } from '../data/data';
     </div>
 </section>
 
+<script>
+    const r = document.getElementById('hero-r') as HTMLElement | null;
+
+    if (r) {
+        const scheduleNextSpin = () => {
+            // gira ogni 6-11 secondi in modo casuale
+            const delay = 6000 + Math.random() * 5000;
+            setTimeout(() => {
+                doSpin(scheduleNextSpin);
+            }, delay);
+        };
+
+        const doSpin = (callback?: () => void) => {
+            r.style.animation = 'rSpin 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+            r.addEventListener('animationend', () => {
+                r.style.animation = '';
+                if (callback) callback();
+            }, { once: true });
+        };
+
+        // aspetta che il fadein del titolo finisca (0.5s delay + 0.8s durata)
+        // poi gira subito, poi inizia il ciclo periodico
+        setTimeout(() => doSpin(scheduleNextSpin), 1400);
+    }
+</script>
+
 </Layout>
 
 <style>
@@ -146,6 +172,15 @@ import { releases, events } from '../data/data';
 
     .animate-fadein {
         animation: fadein 0.8s ease forwards;
+    }
+
+    .hero-r-letter {
+        display: inline-block;
+    }
+
+    @keyframes rSpin {
+        from { transform: rotateY(0deg); }
+        to   { transform: rotateY(360deg); }
     }
 
     @keyframes bounce-slow {
