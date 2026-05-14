@@ -29,7 +29,7 @@ import { releases, events } from '../data/data';
     </section>
 
 <!-- PROSSIMI EVENTI -->
-<section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 2rem; padding-bottom: 1rem;">
+<section class="w-full bg-black/80 relative z-10" style="padding-left: 3%; padding-right: 3%; padding-top: 2rem; padding-bottom: 5rem; min-height: 45vh;">
     <div class="flex items-end justify-between mb-16">
         <h2 class="text-6xl md:text-8xl text-white">LIVE</h2>
         <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
@@ -50,9 +50,10 @@ import { releases, events } from '../data/data';
                         <a href={event.link} target="_blank" class="group flex items-center justify-between py-7 border-t border-white/10 hover:border-[#e8ff00]/50 transition-all duration-300 hover:px-4">
                             <div class="flex items-center gap-8">
                                 <span class="text-[#e8ff00] text-sm font-mono tracking-widest w-28">{event.date}</span>
-                                <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.venue}</span>
+                                <span class="text-white text-xl md:text-2xl font-light group-hover:text-[#e8ff00] transition-colors">{event.name}</span>
                             </div>
                             <div class="flex items-center gap-6">
+                                <span class="text-white/50 text-sm tracking-wider uppercase">{event.location}</span>
                                 <span class="text-white/50 text-sm tracking-wider uppercase">{event.city}</span>
                                 <span class="text-[#e8ff00] text-xs tracking-widest uppercase">→ Info e biglietti</span>
                             </div>
@@ -69,9 +70,10 @@ import { releases, events } from '../data/data';
                                 <a href={event.link} target="_blank" class="group flex items-center justify-between py-5 border-t border-white/5 hover:border-white/20 transition-all duration-300 hover:px-4">
                                     <div class="flex items-center gap-8">
                                         <span class="text-white/30 text-sm font-mono tracking-widest w-28">{event.date}</span>
-                                        <span class="text-white/40 text-xl md:text-2xl font-light group-hover:text-white/60 transition-colors">{event.venue}</span>
+                                        <span class="text-white/40 text-xl md:text-2xl font-light group-hover:text-white/60 transition-colors">{event.name}</span>
                                     </div>
                                     <div class="flex items-center gap-6">
+                                        <span class="text-white/30 text-sm tracking-wider uppercase">{event.location}</span>
                                         <span class="text-white/30 text-sm tracking-wider uppercase">{event.city}</span>
                                     </div>
                                 </a>
