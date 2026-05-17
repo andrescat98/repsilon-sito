@@ -89,10 +89,30 @@ const { title, description = '— Repsilon —' } = Astro.props;
 </html>
 
 <style is:global>
+    /* ═══════════════════════════════════════════════════════════════
+       PALETTE  —  modifica globals.css (@theme --color-accent)
+       per aggiornare l'accento in tutta l'app
+       ═══════════════════════════════════════════════════════════════ */
     :root {
-        --accent: #e8ff00;
-        --accent-dim: rgba(232, 255, 0, 0.15);
-        --dark: #0a0a0a;
+        /* accento */
+        --accent: var(--color-accent);
+        --accent-dim: color-mix(in srgb, var(--color-accent) 15%, transparent);
+        --accent-border: color-mix(in srgb, var(--color-accent) 50%, transparent);
+
+        /* sfondi */
+        --bg: #000000;
+        --bg-dark: #0a0a0a;
+        --bg-surface: rgba(0, 0, 0, 0.8);
+        --bg-surface-heavy: rgba(0, 0, 0, 0.95);
+
+        /* testo */
+        --text: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.5);
+        --text-faint: rgba(255, 255, 255, 0.3);
+
+        /* bordi */
+        --border: rgba(255, 255, 255, 0.1);
+        --border-faint: rgba(255, 255, 255, 0.05);
     }
 
     * {

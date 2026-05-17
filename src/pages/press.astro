@@ -11,7 +11,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="relative z-10 flex items-end" style="padding-left: 3%; padding-right: 3%; padding-top: 12rem; padding-bottom: 3rem;">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10">
-            <p class="text-[#e8ff00] text-sm tracking-[0.4em] uppercase">Materiale stampa</p>
+            <p class="text-accent text-sm tracking-[0.4em] uppercase">Materiale stampa</p>
             <h1 class="text-[clamp(4rem,14vw,12rem)] leading-none text-white">PRESS KIT</h1>
         </div>
     </section>
@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">BIO</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+                <div class="w-32 h-px bg-accent mb-3"></div>
             </div>
             <p class="text-white/80 leading-relaxed mb-4">
                 Vincenzo Reina, in arte <strong class="text-white">Repsilon</strong>, nasce nel 1998 in Sicilia. Da bambino sviluppa la passione per la chitarra
@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40" style="padding-top: 2rem;">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">LIVE</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-6"></div>
+                <div class="w-32 h-px bg-accent mb-6"></div>
             </div>
             <p class="text-white/80 leading-relaxed">
                 A settembre 2022 debutta live al <strong class="text-white">Balconcino di Torino</strong> e sul palco dei <strong class="text-white"
@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40" style="padding-top: 2rem;">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">COLLAB</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+                <div class="w-32 h-px bg-accent mb-3"></div>
             </div>
             <p class="text-white/80 leading-relaxed mb-4">
                 Nel 2023 recita come protagonista nel videoclip di <em>"The Singer in the Band"</em> di <strong class="text-white">Marco Bonino</strong>,
@@ -78,11 +78,11 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40" style="padding-top: 2rem;">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">DISCO</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+                <div class="w-32 h-px bg-accent mb-3"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <p class="text-[#e8ff00] text-s tracking-[0.4em] uppercase mb-6">Discografia</p>
+                    <p class="text-accent text-s tracking-[0.4em] uppercase mb-6">Discografia</p>
                     <ul class="space-y-2">
                         {
                             [
@@ -91,8 +91,8 @@ import Layout from '../layouts/Layout.astro';
                                 { year: '2026', title: 'Onde', href: 'https://open.spotify.com/intl-it/album/3ocNyROi9LVgQ8AwsB2KGw' }
                             ].map((r) => (
                                 <li class="text-white/80">
-                                    <span class="text-[#e8ff00] font-mono text-xs mr-4">{r.year}</span>
-                                    <a href={r.href} target="_blank" class="hover:text-[#e8ff00] transition-colors">
+                                    <span class="text-accent font-mono text-xs mr-4">{r.year}</span>
+                                    <a href={r.href} target="_blank" class="hover:text-accent transition-colors">
                                         {r.title}
                                     </a>
                                 </li>
@@ -101,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
                     </ul>
                 </div>
                 <div>
-                    <p class="text-[#e8ff00] text-s tracking-[0.4em] uppercase mb-6">Colonne sonore per corti</p>
+                    <p class="text-accent text-s tracking-[0.4em] uppercase mb-6">Colonne sonore per corti</p>
                     <ul class="space-y-2">
                         {
                             [
@@ -112,7 +112,7 @@ import Layout from '../layouts/Layout.astro';
                                 { year: '2022', title: 'Red Light' }
                             ].map((c) => (
                                 <li class="text-white/80">
-                                    <span class="text-[#e8ff00] font-mono text-xs mr-4">{c.year}</span>
+                                    <span class="text-accent font-mono text-xs mr-4">{c.year}</span>
                                     {c.title}
                                 </li>
                             ))
@@ -126,7 +126,7 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40" style="padding-top: 2rem;">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">STAMPA</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+                <div class="w-32 h-px bg-accent mb-3"></div>
             </div>
             <p class="text-white/80 leading-relaxed mb-4">
                 Repsilon è incluso nel libro <strong class="text-white">"Cantautori e cantautrici del nuovo millennio. Il dizionario"</strong> di Michele Neri, edito
@@ -143,15 +143,15 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-40" style="padding-top: 2rem;">
             <div class="flex items-end justify-between mb-8">
                 <h2 class="text-2xl md:text-4xl text-white">CONTATTI</h2>
-                <div class="w-32 h-px bg-[#e8ff00] mb-3"></div>
+                <div class="w-32 h-px bg-accent mb-3"></div>
             </div>
-            <a href="mailto:repsilonofficial@gmail.com" class="text-white/60 hover:text-[#e8ff00] transition-colors text-xl">repsilonofficial@gmail.com</a>
+            <a href="mailto:repsilonofficial@gmail.com" class="text-white/60 hover:text-accent transition-colors text-xl">repsilonofficial@gmail.com</a>
         </section>
 
         <div class="print:hidden flex justify-end pt-10">
             <button
                 onclick="window.print()"
-                class="inline-flex items-center gap-2 bg-[#e8ff00] text-black text-xs font-bold tracking-widest uppercase px-6 py-3 hover:bg-white transition-colors cursor-pointer"
+                class="inline-flex items-center gap-2 bg-accent text-black text-xs font-bold tracking-widest uppercase px-6 py-3 hover:bg-white transition-colors cursor-pointer"
             >
                 ↓ Stampa / Salva come PDF
             </button>
@@ -181,7 +181,7 @@ import Layout from '../layouts/Layout.astro';
         .text-white\/60 {
             color: black !important;
         }
-        .text-\[\#e8ff00\] {
+        .text-accent {
             color: #333 !important;
         }
         .border-white\/10 {
