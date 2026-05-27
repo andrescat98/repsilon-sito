@@ -35,59 +35,64 @@ import { releases, events } from '../data/data';
         <div class="w-32 h-px bg-accent mb-3"></div>
     </div>
 
-    {(() => {
-        const now = new Date();
-        const future = events.filter(e => new Date(e.dateISO) >= now);
-        const past = events.filter(e => new Date(e.dateISO) < now).slice(-5);
+    <div id="live-events" class="flex flex-col gap-0" data-events={JSON.stringify(events)}></div>
+    <div class="border-t border-white/10"></div>
 
-        return (
-            <>
-                <div class="flex flex-col gap-0">
-                    {future.length === 0 && (
-                        <p class="text-white/40 text-sm tracking-widest uppercase py-8">— Stay tuned per i prossimi concerti —</p>
-                    )}
-                    {future.map((event) => (
-                        <a href={event.link} target="_blank" class="group flex flex-col gap-2 py-7 border-t border-white/10 hover:border-accent/50 transition-all duration-300 hover:px-4">
-                            <div class="flex items-baseline justify-between gap-4">
-                                <span class="text-accent text-base font-mono tracking-widest shrink-0">{event.date}</span>
-                                <span class="text-white text-xl md:text-2xl font-light group-hover:text-accent transition-colors text-right">{event.name}</span>
-                            </div>
-                            <div class="event-location-fit w-full whitespace-nowrap overflow-hidden text-white/40 uppercase font-light" style="font-size: clamp(0.8rem, 3vw, 2rem)">
-                                {event.location} · {event.city}
-                            </div>
-                            <div class="flex justify-end mt-1">
-                                <span class="text-[10px] md:text-xs tracking-widest uppercase text-accent border border-accent/50 md:text-white/40 md:border-white/15 group-hover:border-accent/50 group-hover:text-accent px-3 py-1.5 transition-all whitespace-nowrap">
-                                    Info e biglietti evento →
-                                </span>
-                            </div>
-                        </a>
-                    ))}
-                    <div class="border-t border-white/10"></div>
-                </div>
+    <div id="past-events-section" style="margin-top: 3rem; display: none;">
+        <h3 class="text-white/30 text-xs tracking-[0.4em] uppercase mb-6">Archivio eventi</h3>
+        <div id="past-events" class="flex flex-col gap-0"></div>
+    </div>
 
-                {past.length > 0 && (
-                    <div style="margin-top: 3rem;">
-                        <h3 class="text-white/30 text-xs tracking-[0.4em] uppercase mb-6">Archivio eventi</h3>
-                        <div class="flex flex-col gap-0">
-                            {past.map((event) => (
-                                <a href={event.link} target="_blank" class="group flex items-stretch gap-8 py-5 border-t border-white/5 hover:border-white/20 transition-all duration-300 hover:px-4">
-                                    <div class="flex flex-col gap-1 shrink-0 w-28">
-                                        <span class="text-white/30 text-sm font-mono tracking-widest">{event.date}</span>
-                                        <span class="text-white/25 text-xs tracking-wider uppercase">{event.location}</span>
-                                        <span class="text-white/25 text-xs tracking-wider uppercase">{event.city}</span>
-                                    </div>
-                                    <div class="flex flex-col flex-1">
-                                        <span class="text-white/40 text-xl md:text-2xl font-light group-hover:text-white/60 transition-colors">{event.name}</span>
-                                    </div>
-                                </a>
-                            ))}
-                            <div class="border-t border-white/5"></div>
-                        </div>
+    <script type="module">
+        const liveContainer = document.getElementById('live-events');
+        const pastSection = document.getElementById('past-events-section');
+        const pastContainer = document.getElementById('past-events');
+
+        if (liveContainer && pastSection && pastContainer) {
+            const eventsJson = liveContainer.dataset.events || '[]';
+            const events = JSON.parse(eventsJson);
+            const now = new Date();
+            const future = events.filter(e => new Date(e.dateISO) >= now);
+            const past = events.filter(e => new Date(e.dateISO) < now).slice(-5);
+
+            const createUpcomingEvent = (event) => `
+                <a href="${event.link}" target="_blank" class="group flex flex-col gap-2 py-7 border-t border-white/10 hover:border-accent/50 transition-all duration-300 hover:px-4">
+                    <div class="flex items-baseline justify-between gap-4">
+                        <span class="text-accent text-base font-mono tracking-widest shrink-0">${event.date}</span>
+                        <span class="text-white text-xl md:text-2xl font-light group-hover:text-accent transition-colors text-right">${event.name}</span>
                     </div>
-                )}
-            </>
-        );
-    })()}
+                    <div class="event-location-fit w-full whitespace-nowrap overflow-hidden text-white/40 uppercase font-light" style="font-size: clamp(0.8rem, 3vw, 2rem)">
+                        ${event.location} · ${event.city}
+                    </div>
+                    <div class="flex justify-end mt-1">
+                        <span class="text-[10px] md:text-xs tracking-widest uppercase text-accent border border-accent/50 md:text-white/40 md:border-white/15 group-hover:border-accent/50 group-hover:text-accent px-3 py-1.5 transition-all whitespace-nowrap">
+                            Info e biglietti evento →
+                        </span>
+                    </div>
+                </a>`;
+
+            const createPastEvent = (event) => `
+                <a href="${event.link}" target="_blank" class="group flex items-stretch gap-8 py-5 border-t border-white/5 hover:border-white/20 transition-all duration-300 hover:px-4">
+                    <div class="flex flex-col gap-1 shrink-0 w-28">
+                        <span class="text-white/30 text-sm font-mono tracking-widest">${event.date}</span>
+                        <span class="text-white/25 text-xs tracking-wider uppercase">${event.location}</span>
+                        <span class="text-white/25 text-xs tracking-wider uppercase">${event.city}</span>
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <span class="text-white/40 text-xl md:text-2xl font-light group-hover:text-white/60 transition-colors">${event.name}</span>
+                    </div>
+                </a>`;
+
+            liveContainer.innerHTML = future.length === 0
+                ? '<p class="text-white/40 text-sm tracking-widest uppercase py-8">— Stay tuned per i prossimi concerti —</p>'
+                : future.map(createUpcomingEvent).join('');
+
+            if (past.length > 0) {
+                pastContainer.innerHTML = past.map(createPastEvent).join('');
+                pastSection.style.display = '';
+            }
+        }
+    </script>
 </section>
 <!-- ALBUMS -->
 
