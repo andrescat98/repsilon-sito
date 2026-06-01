@@ -23,5 +23,8 @@ pnpm-debug.log*
 # Local Netlify folder
 .netlify
 
+# Wrangler local state
+.wrangler
+
 # Local Backups Package files
 .bak
