@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-    output: 'server',
+    output: 'static',
     vite: {
         plugins: [tailwindcss()]
     },
